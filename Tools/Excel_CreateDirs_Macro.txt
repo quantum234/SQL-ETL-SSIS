@@ -1,0 +1,20 @@
+Sub CreateDirs()
+    Dim R As Range
+    For Each R In Range("A2:A1000")
+        If Len(R.Text) > 0 Then
+            On Error Resume Next
+            Shell ("cmd /c md " & Chr(34) & Range("A1") & "\" & R.Text & Chr(34))
+            On Error GoTo 0
+        End If
+    Next R
+End Sub
+Sub CreateDirsFullPaths()
+    Dim R As Range
+    For Each R In Range("A1:A1000")
+        If Len(R.Text) > 0 Then
+            On Error Resume Next
+            Shell ("cmd /c md " & Chr(34) & R.Text & Chr(34))
+            On Error GoTo 0
+        End If
+    Next R
+End Sub
