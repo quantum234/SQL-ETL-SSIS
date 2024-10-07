@@ -71,13 +71,13 @@ echo "ZooKeeper Nodes: $ZooKeeperServer"
 # every '&&' means: choose to run the second command only if the first exited successfully
 kafka-topics --create --if-not-exists --topic ops-event-offerServed --partitions $PartitionsNumber --replication-factor $ReplicationFactor --config retention.ms=$RetentionMs  --zookeeper $ZooKeeperServer &&
 
-kafka-topics --create --if-not-exists --topic ops-event-clientEvent --partitions $PartitionsNumber --replication-factor $ReplicationFactor --config retention.ms=$RetentionMs --zookeeper $ZooKeeperServer &&
+kafka-topics --create --if-not-exists --topic [TOPICNAME] --partitions $PartitionsNumber --replication-factor $ReplicationFactor --config retention.ms=$RetentionMs --zookeeper $ZooKeeperServer &&
 
-kafka-topics --create --if-not-exists --topic ops-metrics-count --partitions $PartitionsNumber --replication-factor $ReplicationFactor --config retention.ms=86400000 --zookeeper $ZooKeeperServer &&
+kafka-topics --create --if-not-exists --topic [TOPICNAME] --partitions $PartitionsNumber --replication-factor $ReplicationFactor --config retention.ms=86400000 --zookeeper $ZooKeeperServer &&
 
-kafka-topics --create --if-not-exists --topic ops-cmd-dataReplay --partitions 1 --replication-factor 1 --config retention.ms=86400000 --zookeeper $ZooKeeperServer &&
+kafka-topics --create --if-not-exists --topic [TOPICNAME] --partitions 1 --replication-factor 1 --config retention.ms=86400000 --zookeeper $ZooKeeperServer &&
 
-kafka-topics --create --if-not-exists --topic ops-event-dataReplayStatus --partitions 1 --replication-factor 1 --config retention.ms=86400000 --zookeeper $ZooKeeperServer 
+kafka-topics --create --if-not-exists --topic [TOPICNAME] --partitions 1 --replication-factor 1 --config retention.ms=86400000 --zookeeper $ZooKeeperServer 
 
 # check if the last above command exit successfully (0) or not (1)
 if [ $? -eq 0 ]
